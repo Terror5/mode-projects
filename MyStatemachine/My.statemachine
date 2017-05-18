@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<statemachine:CompositeState xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:statemachine="http://www.example.org/statemachine" name="Switch">
+  <substate name="On">
+    <out end="//@substate.1"/>
+  </substate>
+  <substate name="Off">
+    <out end="//@substate.0"/>
+  </substate>
+</statemachine:CompositeState>

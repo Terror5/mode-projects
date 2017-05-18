@@ -1,0 +1,81 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.example.org/gantt')]
+
+
+[template public generateElement(aProject : Project)]
+[comment @main/]
+[file (aProject.name.concat('.html'), false, 'UTF-8')]
+	[genHtml(aProject)/]
+[/file]
+[/template]
+
+
+[template private genHtml(aProject : Project)]
+<html>
+<head>
+	<style type="text/css">
+	.table {width:400px;border:1px solid blue;display:table}
+	.row {height:40px;display:table-row}
+	.cell {border:1px solid black;display:table-cell}
+	</style>
+</head>
+<body>
+<h1>[aProject.name/]</h1>
+	<div class="table">
+		<div class="row">
+			<div class="cell" style="font-weight: bold;">Type</div>
+			<div class="cell" style="font-weight: bold;">Name</div>
+			<div class="cell" style="font-weight: bold;">Duration</div>
+			<div class="cell" style="font-weight: bold;">Dependency To</div>
+		</div>	
+		[for (aSummary : Summary | aProject.oclAsType(Project).summary)]
+			[genSummary(aSummary)/]
+		[/for]
+	</div>
+</body>
+</html>
+[/template]
+
+
+[template private genSummary(aSummary : Summary)]
+<div class="row" style="background-color: lightblue;">
+	<div class="cell">[aSummary.eClass().name/]</div>
+	<div class="cell">[aSummary.name/]</div>
+	<div class="cell"></div>
+	<div class="cell"></div>
+</div>
+[for (aActivity : Activity | aSummary.oclAsType(Summary).activity)]
+	[genActivity(aActivity)/]
+[/for]
+
+[/template]
+
+[template private genActivity(aActivity : Activity)]
+<div class="row">
+	<div class="cell">[aActivity.eClass().name/]</div>
+	<div class="cell">[aActivity.name/]</div>
+	<div class="cell">
+	[if (aActivity.isMilestone)]
+		Milestone
+	[else]	
+		[aActivity.duration/]
+	[/if]
+	</div>
+	<div class="cell">
+	[for (dependency : Dependency | aActivity.oclAsType(Activity).dependency)]
+		<div class="row">
+			<div class="cell">
+			[if (dependency.startToStart)]
+				Start To Start
+			[elseif (dependency.startToFinish)]
+				Start To Finish
+			[elseif (dependency.finishToFinish)]	
+				Finish to Finish
+			[/if]
+			</div>
+			<div class="cell">To Activity: [dependency.activity.name/]</div>
+		</div>
+	[/for]
+	</div>
+</div>
+[/template]

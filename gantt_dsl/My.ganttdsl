@@ -1,0 +1,8 @@
+Activity test {
+	Activity sub1 {
+		Dependency -> sub2 
+	}
+	Activity sub2 {
+		Dependency -> sub1
+	}
+}

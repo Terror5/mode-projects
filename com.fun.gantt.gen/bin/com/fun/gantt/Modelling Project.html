@@ -1,0 +1,99 @@
+	<html>
+	<head>
+		<style type="text/css">
+		.table {width:400px;border:1px solid blue;display:table}
+		.row {height:40px;display:table-row}
+		.cell {border:1px solid black;display:table-cell}
+		</style>
+	</head>
+	<body>
+	<h1>Modelling Project</h1>
+		<div class="table">
+			<div class="row">
+				<div class="cell" style="font-weight: bold;">Type</div>
+				<div class="cell" style="font-weight: bold;">Name</div>
+				<div class="cell" style="font-weight: bold;">Duration</div>
+				<div class="cell" style="font-weight: bold;">Dependency To</div>
+			</div>	
+				<div class="row" style="background-color: lightblue;">
+					<div class="cell">Summary</div>
+					<div class="cell">Implementation</div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+				</div>
+					<div class="row">
+						<div class="cell">Activity</div>
+						<div class="cell">A</div>
+						<div class="cell">
+							5.0
+						</div>
+						<div class="cell">
+							<div class="row">
+								<div class="cell">
+									Start To Finish
+								</div>
+								<div class="cell">To Activity: B</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="cell">Activity</div>
+						<div class="cell">B</div>
+						<div class="cell">
+							5.0
+						</div>
+						<div class="cell">
+							<div class="row">
+								<div class="cell">
+									Finish to Finish
+								</div>
+								<div class="cell">To Activity: Mile</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="cell">Activity</div>
+						<div class="cell">Mile</div>
+						<div class="cell">
+							Milestone
+						</div>
+						<div class="cell">
+						</div>
+					</div>
+				
+				
+				<div class="row" style="background-color: lightblue;">
+					<div class="cell">Summary</div>
+					<div class="cell">Testing</div>
+					<div class="cell"></div>
+					<div class="cell"></div>
+				</div>
+					<div class="row">
+						<div class="cell">Activity</div>
+						<div class="cell">Peter Unit Test</div>
+						<div class="cell">
+							10.0
+						</div>
+						<div class="cell">
+							<div class="row">
+								<div class="cell">
+									Start To Finish
+								</div>
+								<div class="cell">To Activity: Finish Testing</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="cell">Activity</div>
+						<div class="cell">Finish Testing</div>
+						<div class="cell">
+							Milestone
+						</div>
+						<div class="cell">
+						</div>
+					</div>
+				
+				
+		</div>
+	</body>
+	</html>

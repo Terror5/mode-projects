@@ -1,0 +1,18 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.example.org/statemachine')]
+
+
+[template public generateStatemachine(aCompositeState : CompositeState)]
+[comment @main/]
+[file (aCompositeState.name.concat('.yourmom.txt'), false, 'UTF-8')]
+[genState(aCompositeState)/]
+[/file]
+[/template]
+
+[template private genState(aState : State)]
+Antoine needs to [aState.name/] his pants.
+But he forgot whether to put them 
+[for (child : State | aState.oclAsType(CompositeState).substate)]
+	[child.name/] or
+[/for]
+[/template]

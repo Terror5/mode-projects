@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gantt:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:gantt="http://www.example.org/gantt" duration="100.0" name="Modelling Project">
+  <summary name="Implementation">
+    <activity name="A" duration="5.0">
+      <dependency activity="//@summary.0/@activity.1" startToFinish="true"/>
+    </activity>
+    <activity name="B" duration="5.0">
+      <dependency activity="//@summary.0/@activity.2" finishToFinish="true"/>
+    </activity>
+    <activity name="Mile" isMilestone="true"/>
+  </summary>
+  <summary name="Testing">
+    <activity name="Peter Unit Test" duration="10.0">
+      <dependency activity="//@summary.1/@activity.1" startToFinish="true"/>
+    </activity>
+    <activity name="Finish Testing" isMilestone="true"/>
+  </summary>
+</gantt:Project>
